@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText android:id="@+id/carName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/car_name_hint"
+        android:inputType="textPersonName" />
+
+    <EditText android:id="@+id/carMileage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/mileage_hint"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp" />
+
+    <EditText android:id="@+id/oilChangeMileage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oil_mileage_hint"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp" />
+
+    <EditText android:id="@+id/oilIntervalKm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oil_interval_hint"
+        android:inputType="number"
+        android:layout_marginTop="8dp" />
+
+    <EditText android:id="@+id/inspectionIntervalMonths"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/inspection_interval_hint"
+        android:inputType="number"
+        android:layout_marginTop="8dp" />
+
+    <Button android:id="@+id/lastInspectionBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_inspection_date"
+        android:layout_marginTop="8dp" />
+
+    <Button android:id="@+id/addCarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_car"
+        android:layout_marginTop="16dp" />
+
+    <ListView android:id="@+id/carListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

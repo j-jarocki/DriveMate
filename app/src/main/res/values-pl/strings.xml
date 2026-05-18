@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">DriveMate</string>
+
+    <string name="start_drive">Rozpocznij jazdę</string>
+    <string name="garage">Garaż</string>
+    <string name="clicker_game">Gra Clicker</string>
+    <string name="settings">Ustawienia</string>
+
+    <string name="notif_channel_desc">Powiadomienia o przeglądach i wymianie oleju</string>
+    <string name="car_inspection">Przegląd samochodu</string>
+    <string name="oil_change">Wymiana oleju</string>
+    <string name="inspection_overdue">Przegląd dla %s jest zaległy!</string>
+    <string name="inspection_tomorrow">Przegląd dla %s jest jutro!</string>
+    <string name="inspection_in_days">Przegląd dla %s za %d dni</string>
+    <string name="oil_change_left">Do wymiany oleju w %1$s pozostało %2$d km!</string>
+    <string name="driving_in_progress">Śledzenie trasy w tle...</string>
+
+    <string name="car_name_hint">Nazwa samochodu</string>
+    <string name="mileage_hint">Przebieg (km)</string>
+    <string name="oil_mileage_hint">Przebieg przy ost. wymianie oleju</string>
+    <string name="oil_interval_hint">Interwał wymiany oleju (km)</string>
+    <string name="inspection_interval_hint">Interwał przeglądu (miesiące)</string>
+    <string name="choose_inspection_date">Wybierz datę ostatniego przeglądu</string>
+    <string name="add_car">Dodaj samochód</string>
+    <string name="save_car">Zapisz zmiany</string>
+    <string name="change_oil_now">Wymień olej teraz</string>
+    <string name="do_inspection_now">Zrób przegląd teraz</string>
+    <string name="car_list_item">%1$s - Ostatni przegląd: %2$s</string>
+    <string name="fill_all_fields">Wypełnij wszystkie pola!</string>
+    <string name="saved">Zapisano</string>
+    <string name="choose_car">Wybierz samochód!</string>
+
+    <string name="last_inspection_date">Ostatni przegląd: %1$s</string>
+    <string name="oil_mileage_updated">Zaktualizowano przebieg wymiany oleju</string>
+    <string name="enter_current_mileage">Najpierw wprowadź aktualny przebieg</string>
+    <string name="inspection_date_updated">Zaktualizowano datę przeglądu na dziś</string>
+
+    <string name="distance_driven_initial">Przebyte km: 0.0</string>
+    <string name="distance_driven">Przebyte km: %.2f</string>
+    <string name="driven_total">Przejechano łącznie: %.2f km</string>
+    <string name="stop_drive">Zakończ jazdę</string>
+
+    <string name="btn_click">Kliknij!</string>
+    <string name="not_enough_money">Brakuje pieniędzy!</string>
+    <string name="money_text">Kasa: %1$d $</string>
+    <string name="money_amount">Kasa: %1$d $</string>
+    <string name="engine_lvl">Silnik Lvl %1$d (%2$d$)</string>
+    <string name="suspension_lvl">Zawieszenie Lvl %1$d (%2$d$)</string>
+    <string name="buy_nitro">Kup Nitro (%1$d$)</string>
+    <string name="buy_turbo">Kup Turbo (%1$d$)</string>
+    <string name="passive_income">Pasywnie: %1$d $/s</string>
+    <string name="buy">Kup</string>
+    <string name="tuning_header">Tuning aktualnego auta:</string>
+    <string name="buy_new_car">Kup nowe auto</string>
+    <string name="driver_rank_label">Aktualna ranga: %1$s</string>
+    <string name="driver_rank_label_empty">Aktualna ranga: Brak (Przejedź 10 km)</string>
+    <string name="km_left_to_rank">Do kolejnej oceny: %.2f km</string>
+    <string name="km_left_initial">Do kolejnej oceny: 10.00 km</string>
+</resources>

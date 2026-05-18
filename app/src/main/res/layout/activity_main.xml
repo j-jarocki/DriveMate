@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16.dp">
+
+    <Button android:id="@+id/btnStartDrive"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/start_drive" android:layout_marginBottom="8dp"/>
+    <Button android:id="@+id/btnGarage"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/garage" android:layout_marginBottom="8dp"/>
+    <Button android:id="@+id/btnClicker"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/clicker_game" android:layout_marginBottom="8dp"/>
+    <Button android:id="@+id/btnSettings"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/settings"/>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/carSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/distance_driven_initial"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:id="@+id/rankTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/driver_rank_label_empty"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:textColor="#3F51B5" />
+
+    <TextView
+        android:id="@+id/kmLeftTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/km_left_initial"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:textColor="#757575" />
+
+    <Button
+        android:id="@+id/startDriveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_drive"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/stopDriveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_drive"
+        android:layout_marginTop="16dp"
+        android:enabled="false" />
+
+</LinearLayout>

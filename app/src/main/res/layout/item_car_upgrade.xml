@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#F0F0F0"
+    android:layout_marginBottom="8dp">
+
+    <TextView android:id="@+id/carName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Audi A4" />
+
+    <Button android:id="@+id/engineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Engine Lvl 1 (50$)" />
+
+    <Button android:id="@+id/suspensionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Suspension Lvl 1 (50$)" />
+</LinearLayout>

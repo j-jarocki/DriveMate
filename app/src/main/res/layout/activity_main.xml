@@ -4,18 +4,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16.dp">
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/mainRankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ranga: Ładowanie..."
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
 
     <Button android:id="@+id/btnStartDrive"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="@string/start_drive" android:layout_marginBottom="8dp"/>
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/start_drive" 
+        android:layout_marginBottom="8dp"/>
+
     <Button android:id="@+id/btnGarage"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="@string/garage" android:layout_marginBottom="8dp"/>
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/garage" 
+        android:layout_marginBottom="8dp"/>
+
     <Button android:id="@+id/btnClicker"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="@string/clicker_game" android:layout_marginBottom="8dp"/>
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/clicker_game" 
+        android:layout_marginBottom="8dp"/>
+
+    <Button android:id="@+id/btnStats"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="Statystyki" 
+        android:layout_marginBottom="8dp"/>
+
     <Button android:id="@+id/btnSettings"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
         android:text="@string/settings"/>
 </LinearLayout>

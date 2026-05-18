@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
+        <activity android:name=".StatsActivity" />
+
         <activity
             android:name=".ClickerActivity"
             android:exported="false" />

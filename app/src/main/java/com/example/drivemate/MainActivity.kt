@@ -23,7 +23,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val rank = getSharedPreferences("app_stats", Context.MODE_PRIVATE).getString("rank", "Brak")
-        findViewById<TextView>(R.id.mainRankText).text = "Ranga: $rank"
+        val prefs = getSharedPreferences("app_stats", Context.MODE_PRIVATE)
+        val totalKm = prefs.getFloat("total_km", 0f)
+        val rankKey = prefs.getString("rank_key", "stats_rank_none") ?: "stats_rank_none"
+
+        val resId = resources.getIdentifier(rankKey, "string", packageName)
+        val resolvedRank = if (resId != 0) getString(resId) else getString(R.string.stats_rank_none)
+
+        if (totalKm >= 5.0f) {
+            findViewById<TextView>(R.id.mainRankText).text = getString(R.string.main_rank_prefix, resolvedRank)
+        } else {
+            findViewById<TextView>(R.id.mainRankText).text = getString(R.string.main_rank_lock, 5.0f - totalKm)
+        }
     }
 }

@@ -18,9 +18,6 @@ import android.os.Looper
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.gms.location.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 object DriveSession {
     var isDriving = false
@@ -80,7 +77,9 @@ class DriveService : Service(), SensorEventListener {
                     if (lastLocation != null) {
                         val dist = lastLocation!!.distanceTo(loc) / 1000.0
                         DriveSession.totalDistance += dist
-                        if (loc.speed > DriveSession.maxSpeed) DriveSession.maxSpeed = loc.speed
+                        if (loc.speed > DriveSession.maxSpeed) {
+                            DriveSession.maxSpeed = loc.speed
+                        }
                         updateGlobalStats(dist.toFloat())
                         LocalBroadcastManager.getInstance(this@DriveService).sendBroadcast(Intent("UPDATE_DISTANCE"))
                     }
@@ -93,23 +92,56 @@ class DriveService : Service(), SensorEventListener {
 
     private fun updateGlobalStats(dist: Float) {
         val prefs = getSharedPreferences("app_stats", Context.MODE_PRIVATE)
-        val total = prefs.getFloat("total_km", 0f) + dist
-        prefs.edit().putFloat("total_km", total).apply()
+        val currentTripKm = prefs.getFloat("current_trip_km", 0f) + dist
+        prefs.edit().putFloat("current_trip_km", currentTripKm).apply()
     }
 
     private fun saveFinalStats() {
         val prefs = getSharedPreferences("app_stats", Context.MODE_PRIVATE)
-        val currentPenalties = prefs.getInt("total_penalties", 0) + penalties
-        val totalKm = prefs.getFloat("total_km", 0f)
-        val rank = if (totalKm >= 5.0f) {
-            val score = currentPenalties / totalKm
-            when {
-                score < 0.2 -> "Mistrz Kierownicy"
-                score < 0.5 -> "Dobry Kierowca"
-                else -> "Początkujący"
+        val tripKm = prefs.getFloat("current_trip_km", 0f)
+        val oldTotalKm = prefs.getFloat("total_km", 0f)
+        val totalKm = oldTotalKm + tripKm
+
+        val distRankKey = when {
+            totalKm >= 501.0f -> "rank_kubica"
+            totalKm >= 101.0f -> "rank_baby_driver"
+            totalKm >= 51.0f -> "rank_niedzielny"
+            totalKm >= 1.0f -> "rank_poczatkujacy"
+            else -> "stats_rank_none"
+        }
+
+        var styleRank = prefs.getString("style_rank", "Brak") ?: "Brak"
+        if (totalKm >= 5.0f && tripKm >= 5.0f) {
+            val score = penalties.toFloat() / tripKm
+            styleRank = when {
+                score < 0.1f -> "A"
+                score < 0.3f -> "B"
+                score < 0.5f -> "C"
+                score < 1.0f -> "D"
+                else -> "F"
             }
-        } else "Brak (przejedź 5km)"
-        prefs.edit().putInt("total_penalties", currentPenalties).putString("rank", rank).apply()
+        }
+
+        val topSpeed = prefs.getFloat("top_speed", 0f)
+        val sessionMaxSpeed = DriveSession.maxSpeed * 3.6f
+        if (sessionMaxSpeed > topSpeed) {
+            prefs.edit().putFloat("top_speed", sessionMaxSpeed).apply()
+        }
+
+        val carPrefs = getSharedPreferences("car_stats", Context.MODE_PRIVATE)
+        if (DriveSession.selectedCarId != -1) {
+            val currentCarKm = carPrefs.getFloat("car_${DriveSession.selectedCarId}", 0f) + tripKm
+            carPrefs.edit().putFloat("car_${DriveSession.selectedCarId}", currentCarKm).apply()
+        }
+
+        prefs.edit()
+            .putFloat("total_km", totalKm)
+            .putFloat("current_trip_km", 0f)
+            .putString("rank_key", distRankKey)
+            .putString("style_rank", styleRank)
+            .apply()
+
+        penalties = 0
     }
 
     override fun onSensorChanged(e: SensorEvent?) {

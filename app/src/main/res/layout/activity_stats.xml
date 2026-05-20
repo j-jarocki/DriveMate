@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Statystyki"
+        android:text="@string/stats_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -23,6 +23,27 @@
 
     <TextView
         android:id="@+id/txtRank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/txtStyleRank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/txtProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/txtBestCar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"

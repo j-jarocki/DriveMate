@@ -54,7 +54,24 @@
     <string name="buy_new_car">Buy a new car</string>
 
     <string name="driver_rank_label">Current Rank: %1$s</string>
-    <string name="driver_rank_label_empty">Current Rank: None (Drive 10 km)</string>
-    <string name="km_left_to_rank">Next review in: %.2f km</string>
-    <string name="km_left_initial">Next review in: 10.00 km</string>
+    <string name="driver_rank_label_empty">Current Rank: None (Drive 5 km)</string>
+    <string name="km_left_to_rank">Next rank in: %.2f km</string>
+    <string name="km_left_initial">Next rank in: 5.00 km</string>
+
+    <string name="stats_title">Statistics</string>
+    <string name="stats_total_km">Total distance: %.2f km</string>
+    <string name="stats_max_speed">Top speed: %.1f km/h</string>
+    <string name="stats_style_rank">Driving style: %1$s</string>
+    <string name="stats_popular_car">Most popular car: %1$s</string>
+    <string name="stats_no_data">No data</string>
+    <string name="stats_max_level">Max level achieved</string>
+    <string name="stats_progress_unlocked">Progress: %.2f / %.2f km to %3$s</string>
+    <string name="stats_progress_lock">Progress: %.2f / 5.00 km to unlock</string>
+    <string name="stats_rank_none">None</string>
+    <string name="main_rank_prefix">Rank: %1$s</string>
+    <string name="main_rank_lock">Rank: None (Drive %.2f km more)</string>
+    <string name="rank_kubica">Robert Kubica</string>
+    <string name="rank_baby_driver">Baby Driver</string>
+    <string name="rank_niedzielny">Sunday Driver</string>
+    <string name="rank_poczatkujacy">Beginner</string>
 </resources>

@@ -111,20 +111,33 @@ class DriveActivity : AppCompatActivity() {
     }
 
     private fun updateTelematicsUI() {
-        val prefs = getSharedPreferences("driving_telematics", Context.MODE_PRIVATE)
-        val currentRank = prefs.getString("driver_rank", null)
-        val rankDist = prefs.getFloat("rank_distance", 0.0f)
-        val kmLeft = if (10.0f - rankDist < 0f) 0f else 10.0f - rankDist
+        val prefs = getSharedPreferences("app_stats", Context.MODE_PRIVATE)
+        val totalKm = prefs.getFloat("total_km", 0f) + prefs.getFloat("current_trip_km", 0f)
+        val rankKey = prefs.getString("rank_key", "stats_rank_none") ?: "stats_rank_none"
 
-        if (currentRank != null) {
-            rankText.text = getString(R.string.driver_rank_label, currentRank)
+        val resId = resources.getIdentifier(rankKey, "string", packageName)
+        val resolvedRank = if (resId != 0) getString(resId) else getString(R.string.stats_rank_none)
+
+        if (totalKm >= 5.0f) {
+            rankText.text = getString(R.string.driver_rank_label, resolvedRank)
         } else {
             rankText.text = getString(R.string.driver_rank_label_empty)
         }
-        kmLeftText.text = getString(R.string.km_left_to_rank, kmLeft)
+
+        val progressText = when {
+            totalKm < 5.0f -> getString(R.string.stats_progress_lock, 5.0f - totalKm)
+            totalKm < 51.0f -> getString(R.string.stats_progress_unlocked, totalKm, 51.0f, getString(R.string.rank_niedzielny))
+            totalKm < 101.0f -> getString(R.string.stats_progress_unlocked, totalKm, 101.0f, getString(R.string.rank_baby_driver))
+            totalKm < 501.0f -> getString(R.string.stats_progress_unlocked, totalKm, 501.0f, getString(R.string.rank_kubica))
+            else -> getString(R.string.stats_max_level)
+        }
+        kmLeftText.text = progressText
     }
 
     private fun startDriving(car: Car) {
+        val prefs = getSharedPreferences("app_stats", Context.MODE_PRIVATE)
+        prefs.edit().putFloat("current_trip_km", 0f).apply()
+
         DriveSession.isDriving = true
         DriveSession.totalDistance = 0.0
         DriveSession.selectedCarId = car.id

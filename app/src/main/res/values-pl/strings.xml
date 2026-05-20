@@ -52,8 +52,26 @@
     <string name="buy">Kup</string>
     <string name="tuning_header">Tuning aktualnego auta:</string>
     <string name="buy_new_car">Kup nowe auto</string>
+
     <string name="driver_rank_label">Aktualna ranga: %1$s</string>
-    <string name="driver_rank_label_empty">Aktualna ranga: Brak (Przejedź 10 km)</string>
-    <string name="km_left_to_rank">Do kolejnej oceny: %.2f km</string>
-    <string name="km_left_initial">Do kolejnej oceny: 10.00 km</string>
+    <string name="driver_rank_label_empty">Aktualna ranga: Brak (Przejedź 5 km)</string>
+    <string name="km_left_to_rank">Do kolejnej rangi: %.2f km</string>
+    <string name="km_left_initial">Do kolejnej rangi: 5.00 km</string>
+
+    <string name="stats_title">Statystyki</string>
+    <string name="stats_total_km">Łącznie km: %.2f</string>
+    <string name="stats_max_speed">V-Max: %.1f km/h</string>
+    <string name="stats_style_rank">Styl jazdy: %1$s</string>
+    <string name="stats_popular_car">Najpopularniejszy samochód: %1$s</string>
+    <string name="stats_no_data">Brak danych</string>
+    <string name="stats_max_level">Maksymalny poziom</string>
+    <string name="stats_progress_unlocked">Postęp: %.2f / %.2f km do %3$s</string>
+    <string name="stats_progress_lock">Postęp: %.2f / 5.00 km do odblokowania</string>
+    <string name="stats_rank_none">Brak</string>
+    <string name="main_rank_prefix">Ranga: %1$s</string>
+    <string name="main_rank_lock">Ranga: Brak (przejedź jeszcze %.2f km)</string>
+    <string name="rank_kubica">Robert Kubica</string>
+    <string name="rank_baby_driver">Baby Driver</string>
+    <string name="rank_niedzielny">Kierowca Niedzielny</string>
+    <string name="rank_poczatkujacy">Początkujący</string>
 </resources>

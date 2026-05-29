@@ -110,15 +110,15 @@ class DriveService : Service(), SensorEventListener {
             else -> "stats_rank_none"
         }
 
-        var styleRank = prefs.getString("style_rank", "Brak") ?: "Brak"
-        if (totalKm >= 5.0f && tripKm >= 5.0f) {
-            val score = penalties.toFloat() / tripKm
-            styleRank = when {
-                score < 0.1f -> "A"
-                score < 0.3f -> "B"
-                score < 0.5f -> "C"
-                score < 1.0f -> "D"
-                else -> "F"
+        var styleRankKey = prefs.getString("style_rank_key", "style_rank_none") ?: "style_rank_none"
+        if (totalKm >= 5.0f && tripKm > 0.1f) {
+            val scorePerKm = penalties.toFloat() / tripKm
+            styleRankKey = when {
+                scorePerKm < 3.0f  -> "style_rank_a"
+                scorePerKm < 8.0f  -> "style_rank_b"
+                scorePerKm < 15.0f -> "style_rank_c"
+                scorePerKm < 25.0f -> "style_rank_d"
+                else -> "style_rank_f"
             }
         }
 
@@ -138,14 +138,16 @@ class DriveService : Service(), SensorEventListener {
             .putFloat("total_km", totalKm)
             .putFloat("current_trip_km", 0f)
             .putString("rank_key", distRankKey)
-            .putString("style_rank", styleRank)
+            .putString("style_rank_key", styleRankKey)
             .apply()
 
         penalties = 0
     }
 
     override fun onSensorChanged(e: SensorEvent?) {
-        if (Math.abs(e?.values?.get(1) ?: 0f) > 5f) penalties++
+        if (Math.abs(e?.values?.get(1) ?: 0f) > 5f || Math.abs(e?.values?.get(0) ?: 0f) > 5f) {
+            penalties++
+        }
     }
     override fun onAccuracyChanged(s: Sensor?, a: Int) {}
     override fun onBind(i: Intent?): IBinder? = null

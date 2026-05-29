@@ -19,20 +19,23 @@ class StatsActivity : AppCompatActivity() {
 
         val totalKm = prefs.getFloat("total_km", 0f)
         val rankKey = prefs.getString("rank_key", "stats_rank_none") ?: "stats_rank_none"
-        val styleRank = prefs.getString("style_rank", "Brak")
+        val styleRankKey = prefs.getString("style_rank_key", "style_rank_none") ?: "style_rank_none"
         val maxSpeed = prefs.getFloat("top_speed", 0f)
 
-        val resId = resources.getIdentifier(rankKey, "string", packageName)
-        val resolvedRank = if (resId != 0) getString(resId) else getString(R.string.stats_rank_none)
+        val resRankId = resources.getIdentifier(rankKey, "string", packageName)
+        val resolvedRank = if (resRankId != 0) getString(resRankId) else getString(R.string.stats_rank_none)
+
+        val resStyleId = resources.getIdentifier(styleRankKey, "string", packageName)
+        val resolvedStyle = if (resStyleId != 0) getString(resStyleId) else getString(R.string.style_rank_none)
 
         findViewById<TextView>(R.id.txtTotalKm)?.text = getString(R.string.stats_total_km, totalKm)
 
         if (totalKm >= 5.0f) {
             findViewById<TextView>(R.id.txtRank)?.text = getString(R.string.driver_rank_label, resolvedRank)
-            findViewById<TextView>(R.id.txtStyleRank)?.text = getString(R.string.stats_style_rank, styleRank)
+            findViewById<TextView>(R.id.txtStyleRank)?.text = getString(R.string.stats_style_rank, resolvedStyle)
         } else {
-            findViewById<TextView>(R.id.txtRank)?.text = getString(R.string.driver_rank_label, getString(R.string.stats_rank_none))
-            findViewById<TextView>(R.id.txtStyleRank)?.text = getString(R.string.stats_style_rank, getString(R.string.stats_rank_none))
+            findViewById<TextView>(R.id.txtRank)?.text = getString(R.string.driver_rank_label, getString(R.string.style_rank_none))
+            findViewById<TextView>(R.id.txtStyleRank)?.text = getString(R.string.stats_style_rank, getString(R.string.style_rank_none))
         }
 
         findViewById<TextView>(R.id.txtMaxSpeed)?.text = getString(R.string.stats_max_speed, maxSpeed)

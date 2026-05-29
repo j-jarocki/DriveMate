@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">DriveMate</string>
-
     <string name="start_drive">Start Drive</string>
     <string name="garage">Garage</string>
     <string name="clicker_game">Clicker Game</string>
     <string name="settings">Settings</string>
-
     <string name="notif_channel_desc">Notifications about inspections and oil changes</string>
     <string name="car_inspection">Car Inspection</string>
     <string name="oil_change">Oil Change</string>
@@ -14,7 +12,6 @@
     <string name="inspection_in_days">Inspection for %s in %d days</string>
     <string name="oil_change_left">Oil change in %1$s: %2$d km left!</string>
     <string name="driving_in_progress">Location tracking in background...</string>
-
     <string name="car_name_hint">Car Name</string>
     <string name="mileage_hint">Mileage (km)</string>
     <string name="oil_mileage_hint">Mileage at last oil change</string>
@@ -29,17 +26,14 @@
     <string name="fill_all_fields">Please fill all fields!</string>
     <string name="saved">Saved successfully</string>
     <string name="choose_car">Choose a car!</string>
-
     <string name="last_inspection_date">Last inspection: %1$s</string>
     <string name="oil_mileage_updated">Oil change mileage updated</string>
     <string name="enter_current_mileage">Enter current mileage first</string>
     <string name="inspection_date_updated">Inspection date updated to today</string>
-
     <string name="distance_driven_initial">Distance: 0.0 km</string>
     <string name="distance_driven">Distance driven: %.2f km</string>
     <string name="driven_total">Total distance driven: %.2f km</string>
     <string name="stop_drive">Stop Drive</string>
-
     <string name="btn_click">Click!</string>
     <string name="not_enough_money">Not enough money!</string>
     <string name="money_text">Money: %1$d $</string>
@@ -52,12 +46,10 @@
     <string name="buy">Buy</string>
     <string name="tuning_header">Current car tuning:</string>
     <string name="buy_new_car">Buy a new car</string>
-
     <string name="driver_rank_label">Current Rank: %1$s</string>
     <string name="driver_rank_label_empty">Current Rank: None (Drive 5 km)</string>
     <string name="km_left_to_rank">Next rank in: %.2f km</string>
     <string name="km_left_initial">Next rank in: 5.00 km</string>
-
     <string name="stats_title">Statistics</string>
     <string name="stats_total_km">Total distance: %.2f km</string>
     <string name="stats_max_speed">Top speed: %.1f km/h</string>
@@ -74,4 +66,11 @@
     <string name="rank_baby_driver">Baby Driver</string>
     <string name="rank_niedzielny">Sunday Driver</string>
     <string name="rank_poczatkujacy">Beginner</string>
+
+    <string name="style_rank_none">None (Drive 5 km)</string>
+    <string name="style_rank_a">Excellent (A)</string>
+    <string name="style_rank_b">Good (B)</string>
+    <string name="style_rank_c">Moderate (C)</string>
+    <string name="style_rank_d">Aggressive (D)</string>
+    <string name="style_rank_f">Dangerous (F)</string>
 </resources>

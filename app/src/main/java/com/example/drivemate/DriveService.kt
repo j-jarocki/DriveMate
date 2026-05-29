@@ -32,7 +32,9 @@ class DriveService : Service(), SensorEventListener {
     private var lastLocation: Location? = null
     private lateinit var sensorManager: SensorManager
     private var accelSensor: Sensor? = null
+
     private var penalties = 0
+    private var lastPenaltyTime = 0L
 
     override fun onCreate() {
         super.onCreate()
@@ -112,12 +114,12 @@ class DriveService : Service(), SensorEventListener {
 
         var styleRankKey = prefs.getString("style_rank_key", "style_rank_none") ?: "style_rank_none"
         if (totalKm >= 5.0f && tripKm > 0.1f) {
-            val scorePerKm = penalties.toFloat() / tripKm
+            val incidentsPerKm = penalties.toFloat() / tripKm
             styleRankKey = when {
-                scorePerKm < 3.0f  -> "style_rank_a"
-                scorePerKm < 8.0f  -> "style_rank_b"
-                scorePerKm < 15.0f -> "style_rank_c"
-                scorePerKm < 25.0f -> "style_rank_d"
+                incidentsPerKm < 0.2f -> "style_rank_a"
+                incidentsPerKm < 0.5f -> "style_rank_b"
+                incidentsPerKm < 1.0f -> "style_rank_c"
+                incidentsPerKm < 2.0f -> "style_rank_d"
                 else -> "style_rank_f"
             }
         }
@@ -145,10 +147,20 @@ class DriveService : Service(), SensorEventListener {
     }
 
     override fun onSensorChanged(e: SensorEvent?) {
-        if (Math.abs(e?.values?.get(1) ?: 0f) > 5f || Math.abs(e?.values?.get(0) ?: 0f) > 5f) {
-            penalties++
+        if (e == null) return
+
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastPenaltyTime > 2500) {
+            val x = Math.abs(e.values[0])
+            val z = Math.abs(e.values[2])
+
+            if (x > 4.8f || z > 4.8f) {
+                penalties++
+                lastPenaltyTime = currentTime
+            }
         }
     }
+
     override fun onAccuracyChanged(s: Sensor?, a: Int) {}
     override fun onBind(i: Intent?): IBinder? = null
 }
